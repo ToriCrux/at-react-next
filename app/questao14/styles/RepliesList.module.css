@@ -1,0 +1,52 @@
+.wrapper{ 
+  margin-top:1rem; 
+}
+
+.title{ 
+  font-weight:800; 
+  margin:0 0 .75rem; 
+  text-align:center; 
+  color:var(--ink); 
+}
+
+.grid{ 
+  display:grid; 
+  gap:.75rem; 
+}
+
+.card{
+  background:var(--panel); 
+  border:1px solid var(--line); 
+  border-radius:12px;
+  padding:1rem; 
+  box-shadow:var(--shadow); 
+  text-align:left;
+}
+
+.msg{ 
+  color:var(--ink); 
+  margin:0 0 .75rem; 
+  line-height:1.55; 
+}
+
+.meta{ 
+  display:flex; 
+  gap:1rem; 
+  flex-wrap:wrap; 
+  font-size:.92rem; 
+  color:var(--muted); 
+  border-top:1px solid var(--line); 
+  padding-top:8px; 
+}
+
+/* ### TRATATIVA PARA VERSÃO DESKTOP ###*/
+@media (min-width:1024px){
+  .grid{ 
+    grid-template-columns: repeat(2, minmax(0,1fr)); 
+    gap:16px; 
+  }
+
+  .card{ 
+    padding:16px 18px; 
+  }
+}

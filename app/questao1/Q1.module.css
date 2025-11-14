@@ -1,0 +1,135 @@
+:root { 
+  --bg:#403F3F; 
+  --fg:#fff; 
+  --muted:#fff; 
+  --stroke:#2b2b2b; 
+}
+
+.wrapper {
+  padding: 16px;
+  font-family: var(--font-open-sans, "Open Sans"), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 400;
+}
+
+.header  { 
+  background: var(--bg); 
+  color: var(--fg); 
+  border-radius: 10px; 
+}
+
+.nav{
+  display: flex;
+  flex-wrap: wrap;                 
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+}
+
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 auto;                  
+  min-width: 0;
+}
+
+.brand strong{ 
+  font-weight:700; 
+}
+
+.logo{ 
+  border-radius: 6px; 
+}
+
+.user{
+  order: 2;                       
+  margin-left: 0;                  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px; height: 34px;
+  border: 1px solid var(--stroke);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg);
+  cursor: pointer;
+}
+
+.user:focus{ 
+  outline:2px solid #8a8a8a; 
+  outline-offset:2px; 
+}
+
+.menu{
+  order: 3;                     
+  flex-basis: 100%;             
+  display: flex;
+  flex-wrap: wrap;                 
+  justify-content: center;
+  gap: 10px 14px;                 
+  margin: 0; padding: 0;
+  list-style: none;
+}
+
+.menu a{
+  color: var(--muted);
+  text-decoration: none;
+  font-size: .95rem;
+  font-weight: 600;
+  white-space: nowrap;             
+  padding: 4px 2px;                
+}
+
+.menu a:hover, .menu a:focus{ 
+  color: var(--fg); 
+}
+
+
+/* ### TRATATIVA PARA A VERSÃO DESKTOP ###*/
+@media (min-width:768px){
+  .nav{
+    position: relative;          
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 12px 56px 12px 18px;
+  }
+
+  .header{
+    --gutter: 12px; 
+    position: relative;
+    width: calc(100vw - (var(--gutter) * 2));
+    left: 50%;
+    margin-left: calc(-50vw + var(--gutter));
+    margin-right: calc(-50vw + var(--gutter));
+    border-radius: 10px; 
+  }
+
+  .brand{ 
+    flex: 0 0 auto; 
+  }
+
+  .menu { 
+    order:0; 
+    flex:1 1 0;
+    display:flex; 
+    justify-content:center; 
+    gap:22px; 
+    white-space:nowrap; 
+  }
+
+  .user{
+    order: 0;
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 0;
+    width: 36px; height: 36px;
+    line-height: 0;        
+    z-index: 2;
+  }
+
+  .user svg{ 
+    display:block; 
+  }
+}

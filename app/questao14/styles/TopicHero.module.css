@@ -1,0 +1,46 @@
+.topic{
+  background:var(--panel); 
+  border:1px solid var(--line); 
+  border-radius:12px;
+  padding:1rem; 
+  box-shadow:var(--shadow); 
+  color:var(--text); 
+  text-align:left;
+}
+
+.topic h2{ 
+  margin:.25rem 0; 
+  font-size:1.25rem; 
+  color:var(--ink); 
+}
+
+.topic h3{ 
+  margin:.25rem 0; 
+  color:var(--ink-2); 
+  font-weight:600; 
+  font-size:.95rem; 
+}
+
+.desc{ 
+  margin:.75rem 0; 
+  color:var(--ink-2); 
+}
+
+.meta{ 
+  display:flex; 
+  gap:1rem; 
+  color:var(--muted); 
+  flex-wrap:wrap; 
+  border-top:1px solid var(--line); 
+  padding-top:8px; 
+}
+
+/* ### TRATATIVA PARA VERSÃO DESKTOP ###*/
+@media (min-width:1024px){
+  .topic{ 
+    padding:20px 22px; 
+  }
+  .topic h2{ 
+    font-size:1.4rem; 
+  }
+}

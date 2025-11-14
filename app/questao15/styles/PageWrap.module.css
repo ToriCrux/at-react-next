@@ -1,0 +1,92 @@
+:global(:root){
+  --bg:#f2f3f5;
+  --panel:#ffffff;
+  --panel-2:#f7f8fa;
+  --text:#1b1d20;
+  --muted:#6b7280;
+  --line:#e6e8ec;
+  --ink:#2f3136;
+  --ink-2:#3a3d44;
+  --shadow:0 2px 8px rgba(16,18,27,.06);
+  --tile-h:66px;
+}
+
+.container{
+  background: var(--bg);
+  min-height: 100dvh;
+  padding: 16px 12px 28px;
+  display: grid;
+  gap: 12px;
+}
+
+.peekBar{
+  display: grid;
+  grid-auto-flow: column;
+  gap: 12px;
+  justify-content: center;
+}
+
+.main{
+  display: block;       
+  margin-top: 8px;
+}
+
+.main :where(section, article, aside){
+  border-radius: 12px;
+}
+
+.leftCol,.rightCol{ 
+  display: none; 
+}
+
+.container :where(h1,h2,h3){
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+
+.container :where(p,li,small,span){
+  color: var(--ink-2);
+}
+
+/* ### TRATATIVA PARA VERSÃO DESKTOP ###*/
+@media (min-width:1024px){
+  .container{
+    --gutter: 12px;
+    position: relative;
+    width: calc(100vw - (var(--gutter) * 2));
+    left: 50%;
+    margin-left: calc(-50vw + var(--gutter));
+    margin-right: calc(-50vw + var(--gutter));
+    border-radius: 10px;
+    padding: 22px 18px 36px;
+  }
+
+  .main{
+    display: grid;
+    grid-template-columns: 280px minmax(0,1fr) 320px; 
+    gap: 16px;
+    align-items: start;
+  }
+
+  .leftCol{
+    display: block;
+    position: sticky;
+    top: 84px;                
+    align-self: start;
+    height: max-content;
+  }
+
+  .centerCol{
+    display: grid;
+    gap: 16px;
+  }
+
+  .rightCol{
+    display: grid;
+    gap: 16px;
+    position: sticky;
+    top: 84px;
+    align-self: start;
+    height: max-content;
+  }
+}

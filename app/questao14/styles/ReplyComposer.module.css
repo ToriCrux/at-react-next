@@ -1,0 +1,58 @@
+.composer{
+  margin-top:16px; 
+  background:var(--panel); 
+  border:1px solid var(--line);
+  border-radius:12px; 
+  padding:1rem; 
+  color:var(--text); 
+  box-shadow:var(--shadow);
+  display:grid; 
+  gap:10px;
+}
+
+.user{ 
+  margin:0; 
+  color:var(--muted); 
+}
+
+.input{
+  width:100%; 
+  min-height:120px; 
+  resize:vertical; 
+  padding:.75rem; 
+  border-radius:10px;
+  border:1px solid var(--line); 
+  background:var(--panel-2); 
+  color:var(--ink);
+  outline:none; 
+  transition:border-color .2s, box-shadow .2s;
+}
+
+.input:focus{ 
+  border-color:#87c62e; 
+  box-shadow:0 0 0 3px rgba(135,198,46,.2); 
+}
+
+.actions{ 
+  display:flex; 
+  justify-content:flex-end; 
+}
+
+.sendBtn{
+  background:var(--ink); 
+  color:#fff; 
+  border:0; 
+  font-weight:700; 
+  padding:.6rem 1rem; 
+  border-radius:10px;
+  cursor:pointer; 
+  box-shadow:var(--shadow);
+}
+
+.sendBtn:hover{ 
+  filter:brightness(1.05); 
+}
+
+.sendBtn:active{ 
+  transform:translateY(1px); 
+}

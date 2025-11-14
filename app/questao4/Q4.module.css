@@ -1,0 +1,259 @@
+:root{ 
+  --bg:#f2f3f5;
+  --panel:#ffffff;
+  --panel-2:#f7f8fa;
+  --text:#1b1d20;
+  --muted:#6b7280;
+  --line:#e6e8ec;
+  --ink:#2f3136;
+  --ink-2:#3a3d44;
+  --shadow:0 2px 8px rgba(16,18,27,.06);
+}
+
+.grid{ 
+  min-height:100svh; 
+  padding:16px; 
+  background:var(--bg); 
+  color:var(--text); 
+  font-family:var(--font-open-sans, "Open Sans"), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
+  display:grid; 
+  gap:14px; 
+  grid-template-columns:1fr; 
+  grid-template-areas: "header" "global" "context" "main" "ads" "footer"; 
+} 
+
+.header,.global,.context,.main,.ads,.footer{ 
+  background:var(--panel); 
+  border:1px solid var(--line); 
+  border-radius:14px; 
+  box-shadow:var(--shadow); 
+  padding:16px; 
+} 
+
+.header{ 
+  grid-area:header; 
+  background:var(--ink); 
+  color:#fff; 
+} 
+
+.h1{ 
+  font-size:1.25rem; 
+  font-weight:800; 
+  margin:0 0 6px; 
+} 
+
+.lead{ 
+  margin:0; 
+  color:#e5e7eb; 
+  font-size:.95rem; 
+} 
+
+.global{ 
+  grid-area:global; 
+  background:var(--ink-2); 
+  color:#fff; 
+} 
+  
+.globalList{ 
+  margin:0; 
+  padding:0; 
+  list-style:none; 
+  display:flex; 
+  gap:14px; 
+  flex-wrap:wrap; 
+  justify-content:center; 
+} 
+  
+.globalList a{ 
+  display:inline-block; 
+  padding:8px 12px; 
+  background:rgba(255,255,255,.06); 
+  border:1px solid rgba(255,255,255,.08); 
+  border-radius:10px; 
+  font-weight:700; 
+  cursor:default; 
+} 
+  
+.context{ 
+  grid-area:context; 
+} 
+
+.h2{ 
+  margin:0 0 10px; 
+  font-size:1.05rem; 
+  font-weight:800; 
+} 
+
+.contextList{ 
+  list-style: none; 
+  padding: 0; 
+  margin: 0 0 12px; 
+} 
+
+.contextList li + li{
+  margin-top: 8px; 
+} 
+
+.contextList a{ 
+  display: block; 
+  width: 100%; 
+  text-decoration: none; 
+  padding: 10px 12px; 
+  background: var(--panel-2); 
+  border: 1px solid var(--line); 
+  border-radius: 10px; 
+  color: var(--text); 
+  font-weight: 600; 
+  line-height: 1.2; 
+  transition: transform .12s ease, box-shadow .12s ease, background-color .12s ease; 
+} 
+
+.contextList a:hover{ 
+  background: #f2f4f7; 
+  transform: translateY(-1px); 
+  box-shadow: 0 6px 12px rgba(16,18,27,.06); 
+} 
+
+.contextList a:focus-visible{ 
+  outline: 3px solid #9aa5b1; 
+  outline-offset: 2px; 
+} 
+
+.contextList a:active{ 
+  transform: translateY(0); 
+  box-shadow: none; 
+} 
+
+.blockNote{ background:var(--panel-2); 
+  border:1px dashed var(--line); 
+  border-radius:10px; 
+  padding:10px 12px; 
+  color:var(--muted); 
+} 
+
+.main{ 
+  grid-area:main; 
+} 
+
+.text{
+ margin:0 0 14px; 
+ color:var(--text); 
+} 
+  
+.textSm{ 
+  margin:0; 
+  color:var(--muted); 
+  font-size:.95rem; 
+} 
+
+.h3{
+  margin:0 0 8px; 
+  font-size:1rem;
+  font-weight:800; 
+} 
+
+.cardGrid{ 
+  display:grid; 
+  gap:12px; 
+  grid-template-columns:1fr; 
+} 
+
+.card{ background:var(--panel-2);
+  border:1px solid var(--line);
+  border-radius:12px; 
+  padding:12px; 
+  text-align: left; 
+} 
+
+.bullets{ 
+  margin:0; 
+  padding-left:18px; 
+} 
+
+.ads{ 
+  grid-area:ads; 
+} 
+
+.adBox, .adBoxTall{ 
+  background:repeating-linear-gradient( 135deg, #f1f3f6, #f1f3f6 8px, #e9edf2 8px, #e9edf2 16px ); 
+  border:1px dashed var(--line); 
+  border-radius:12px; 
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+  color:#8791a2; 
+  font-weight:800; 
+} 
+
+.adBox{ 
+  height:160px; 
+  margin-bottom:12px; 
+} 
+
+.adBoxTall{
+  height:300px; 
+} 
+
+.adSize{ 
+  opacity:.9; 
+} 
+
+.textMuted{ 
+  color:var(--muted); 
+  margin-top:10px; 
+} 
+
+.footer{ 
+  grid-area:footer; 
+  background:var(--ink); 
+  color:#fff; 
+  text-align:center; 
+  font-weight:700; 
+} 
+
+.globalList a, .card, .adBox, .adBoxTall, .context, .main, .ads{ 
+  transition: transform .15s ease, box-shadow .15s ease; 
+} 
+
+.globalList a:hover, .card:hover, .adBox:hover, .adBoxTall:hover, .context:hover, .main:hover, .ads:hover{ 
+  transform: translateY(-2px); box-shadow: 0 10px 18px rgba(16,18,27,.08); 
+} 
+
+@media (min-width:768px){ 
+  .grid{ 
+    --gutter: 12px; 
+    position: relative; 
+    width: calc(100vw - (var(--gutter) * 2)); 
+    left: 50%; 
+    margin-left: calc(-50vw + var(--gutter)); 
+    margin-right: calc(-50vw + var(--gutter)); 
+    padding-left: 0; 
+    padding-right: 0; 
+    padding-top: 0; 
+    padding-bottom: 8px; 
+    box-sizing: border-box; 
+    overflow-x: hidden; 
+    grid-template-columns: 320px minmax(0,1fr) 360px; 
+    grid-template-rows: auto auto auto auto; 
+    grid-template-areas: "header header header" "global global global" "context main ads" "footer footer footer"; 
+    gap: 12px; 
+    align-items: start; 
+    min-height: auto; 
+  } 
+  
+  .main{ 
+    min-width: 0; 
+  } 
+  
+  .adBox{ 
+    height: 150px; 
+  } 
+  
+  .adBoxTall{ 
+    height: 220px; 
+  } 
+  
+  .footer{ 
+    margin-top: 90px; 
+  } 
+}
