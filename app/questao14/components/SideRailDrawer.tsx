@@ -2,12 +2,19 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/SideRailDrawer.module.css";
 
-type Props = { latest: string[]; mostReplied: string[]; mostLiked: string[]; };
+type Props = {
+  latest: string[];
+  mostReplied: string[];
+  mostLiked: string[];
+};
 type TabKey = "latest" | "replied" | "liked";
 
 // Painel lateral deslizante exclusivo para mobile
-export default function SideRailDrawer({ latest, mostReplied, mostLiked }: Props) {
-  
+export default function SideRailDrawer({
+  latest,
+  mostReplied,
+  mostLiked,
+}: Props) {
   const [open, setOpen] = useState(false); // Controla se a gaveta está aberta ou fechada
   const [tab, setTab] = useState<TabKey>("latest");
   const [isDesktop, setIsDesktop] = useState(false); // Flag para saber se está em viewport desktop
@@ -18,7 +25,7 @@ export default function SideRailDrawer({ latest, mostReplied, mostLiked }: Props
 
     const update = () => setIsDesktop(mq.matches);
     update();
-    
+
     const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches); // Handler chamado sempre que o breakpoint é cruzado
 
     mq.addEventListener?.("change", handler);
@@ -34,7 +41,7 @@ export default function SideRailDrawer({ latest, mostReplied, mostLiked }: Props
   const sections: Record<TabKey, { title: string; items: string[] }> = {
     latest: { title: "Tópicos recentes", items: latest },
     replied: { title: "Mais respondidos", items: mostReplied },
-    liked:   { title: "Mais curtidos",   items: mostLiked },
+    liked: { title: "Mais curtidos", items: mostLiked },
   };
 
   // Não renderiza o comportamento em telas desktop
@@ -46,19 +53,28 @@ export default function SideRailDrawer({ latest, mostReplied, mostLiked }: Props
       <div className={styles.compactBar}>
         <button
           className={styles.compactBtn}
-          onClick={() => { setTab("latest"); setOpen(true); }}
+          onClick={() => {
+            setTab("latest");
+            setOpen(true);
+          }}
         >
           Recentes
         </button>
         <button
           className={styles.compactBtn}
-          onClick={() => { setTab("replied"); setOpen(true); }}
+          onClick={() => {
+            setTab("replied");
+            setOpen(true);
+          }}
         >
           Respondidos
         </button>
         <button
           className={styles.compactBtn}
-          onClick={() => { setTab("liked"); setOpen(true); }}
+          onClick={() => {
+            setTab("liked");
+            setOpen(true);
+          }}
         >
           Curtidos
         </button>
@@ -67,30 +83,37 @@ export default function SideRailDrawer({ latest, mostReplied, mostLiked }: Props
       <div
         className={`${styles.overlay} ${open ? styles.show : ""}`}
         onClick={() => setOpen(false)}
+        aria-hidden={open ? "false" : "true"}
       />
 
       {/* Gaveta lateral com as abas de conteúdo */}
       <aside
         className={`${styles.drawer} ${open ? styles.open : ""}`}
-        aria-hidden={!open}
+        aria-hidden={open ? "false" : "true"} 
       >
         <div className={styles.drawerHeader}>
           {/* Tabs internas para alternar entre as três listas */}
           <div className={styles.tabs}>
             <button
-              className={`${styles.tab} ${tab === "latest" ? styles.active : ""}`}
+              className={`${styles.tab} ${
+                tab === "latest" ? styles.active : ""
+              }`}
               onClick={() => setTab("latest")}
             >
               Recentes
             </button>
             <button
-              className={`${styles.tab} ${tab === "replied" ? styles.active : ""}`}
+              className={`${styles.tab} ${
+                tab === "replied" ? styles.active : ""
+              }`}
               onClick={() => setTab("replied")}
             >
               Respondidos
             </button>
             <button
-              className={`${styles.tab} ${tab === "liked" ? styles.active : ""}`}
+              className={`${styles.tab} ${
+                tab === "liked" ? styles.active : ""
+              }`}
               onClick={() => setTab("liked")}
             >
               Curtidos
@@ -112,7 +135,9 @@ export default function SideRailDrawer({ latest, mostReplied, mostLiked }: Props
           <h4 className={styles.title}>{sections[tab].title}</h4>
           <ol className={styles.list}>
             {sections[tab].items.map((t, i) => (
-              <li key={i} className={styles.item}>{t}</li>
+              <li key={i} className={styles.item}>
+                {t}
+              </li>
             ))}
           </ol>
         </div>
